@@ -11,7 +11,11 @@ function App() {
 
   const sendDataToApp = () => {
     // Send data to the parent window (React Native app)
-    window.parent.postMessage('Data to send to app', '*');
+    // window.parent.postMessage('Data to send to app', '*');
+
+    // window.parent.postMessage(value,"*")
+    window.postMessage(value,"*")
+    console.log("hii")
   };
   
 
