@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
+
+
 function App() {
+
+
+  const [value,setValue] =  useState("")
+
+
+  const sendDataToApp = () => {
+    // Send data to the parent window (React Native app)
+    window.parent.postMessage('Data to send to app', '*');
+  };
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+      <h1>Hii</h1>
+
+    {value}
+
+      {/* <form> */}
+        <label htmlFor="input">Enter Input: </label>
+        <input type="text"  onChange={(e)=>{setValue(e.target.value)}} />
+
+      
+        <button onClick={sendDataToApp}  >Submit</button>
+
+      {/* </form> */}
+
+
     </div>
   );
 }
